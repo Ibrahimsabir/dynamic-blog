@@ -1,3 +1,10 @@
-{
-  "extends": ["next/core-web-vitals", "next/typescript"]
-}
+module.exports = {
+  extends: ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
+  rules: {
+    // Enforce double quotes in JSX attributes
+    "jsx-quotes": ["error", "prefer-double"],
+    // Use single quotes for JavaScript strings unless escaping is required
+    "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
+  },
+};
+

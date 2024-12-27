@@ -4,17 +4,12 @@ import { Footer } from "@/components/Footer";
 import { Mega } from "@/components/Mega";
 import { Navbar } from "@/components/Navbar";
 
-
 export default function Home() {
   return (
-   <div>
-    
-    <AuthorCard/>
-    <Features/>
-    <Mega/>
-    
-
-    
-   </div>
+    <div>
+      <AuthorCard />
+      <Features />
+      <Mega />
+    </div>
   );
 }

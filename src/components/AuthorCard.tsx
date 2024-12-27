@@ -24,7 +24,9 @@ export const AuthorCard = () => {
   };
 
   return (
-    <div className={`${poppins.className} bg-white shadow-lg rounded mt-12 p-8 `}>
+    <div
+      className={`${poppins.className} bg-white shadow-lg rounded mt-12 p-8 `}
+    >
       <div className="flex items-center p-8">
         <Image
           src={"/images/profile-pic.jpg"}
@@ -39,17 +41,16 @@ export const AuthorCard = () => {
           </h1>
           <p className="text-gray-700 animate-fade-in-up">
             Front-End developer{" "}
-            <span className="text-red-500 font-bold text-xl"> | </span> UI/UX
-            {" "}Designer{" "}
-            <span className="text-red-500 font-bold text-xl"> | </span>
+            <span className="text-red-500 font-bold text-xl"> | </span> UI/UX{" "}
+            Designer <span className="text-red-500 font-bold text-xl"> | </span>
             Beauty Expert
           </p>
         </div>
       </div>
       <p className="mt-4 flex flex-col items-center justify-center text-gray-700 leading-relaxed">
-        &quot I&aposm a Web Developer and SEO Expert, specializing in creating
-        responsive websites and optimizing them for top search engine
-        rankings. &quot
+        " I&apos;m a Web Developer and SEO Expert, specializing in creating
+        responsive websites and optimizing them for top search engine rankings.
+        "
         <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
           <Link
             href={"#"}

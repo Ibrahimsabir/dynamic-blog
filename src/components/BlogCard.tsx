@@ -10,15 +10,22 @@ const poppins = Poppins({
 });
 
 interface BlogCardProps {
-  post: { id: string; title: string; description: string; date: string; image: string };
+  post: {
+    id: string;
+    title: string;
+    description: string;
+    date: string;
+    image: string;
+  };
   isDarkBackground: boolean;
 }
 
 export default function BlogCard({ post, isDarkBackground }: BlogCardProps) {
   // Limit the description length
-  const trimmedDescription = post.description.length > 100 
-    ? `${post.description.slice(0, 70).trim()}...` 
-    : post.description;
+  const trimmedDescription =
+    post.description.length > 100
+      ? `${post.description.slice(0, 70).trim()}...`
+      : post.description;
 
   return (
     <Card

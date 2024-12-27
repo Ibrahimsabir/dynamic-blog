@@ -7,7 +7,6 @@ import { Poppins } from "next/font/google";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "700"],
-  
 });
 
 export const Navbar = () => {
@@ -29,7 +28,7 @@ export const Navbar = () => {
       setCurrentDateTime(
         now.toLocaleDateString("en-US", options) +
           " " +
-          now.toLocaleTimeString("en-US", { hour12: false })
+          now.toLocaleTimeString("en-US", { hour12: false }),
       );
     };
     updateDateTime();
@@ -38,7 +37,9 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <header className={`${poppins.className}  text-gray-400  body-font shadow-lg`}>
+    <header
+      className={`${poppins.className}  text-gray-400  body-font shadow-lg`}
+    >
       <div className="container mx-auto flex flex-wrap  items-center justify-between py-4 px-6">
         {/* Left: Date and Time */}
         <div className="text-gray-700 text-lg">
@@ -72,10 +73,10 @@ export const Navbar = () => {
             Contact
           </Link>
           <Link href={""}>
-          <button className="flex items-center gap-2 px-4 py-2 text-white bg-blue-700 rounded-lg hover:bg-red-800 transition duration-300">
-            Facebook
-            <FaArrowRightLong />
-          </button>
+            <button className="flex items-center gap-2 px-4 py-2 text-white bg-blue-700 rounded-lg hover:bg-red-800 transition duration-300">
+              Facebook
+              <FaArrowRightLong />
+            </button>
           </Link>
         </nav>
       </div>

@@ -27,7 +27,8 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem}
+    --radius: 0.5rem;
+  }
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -52,103 +53,108 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%}
+    --chart-5: 340 75% 55%;
+  }
 }
 
 @layer base {
-  *{
-  @apply border-white;
+  * {
+    @apply border-white;
   }
   body {
-  @apply bg-background text-foreground;
+    @apply bg-background text-foreground;
   }
-  }
-  /* src/globals.css */
-  *{
+}
+/* src/globals.css */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+}
+.container {
+  max-width: 1200px;
+  margin: 16px auto;
+}
+@keyframes colorChange {
+  0% {
+    color: #ef4444; /* Red (text-red-608) */
   }
+  50% {
+    color: #073070; /* Blue (text-blue-780) */
+  }
+  100% {
+    color: #ef4444; /* Red (text-red-600) */
+  }
+}
 
-  body {
-    font-family: 'Times New Roman', Times, serif;
-    }
-    .container {
-    max-width: 1200px;
-    margin: 16px auto;
-    }
-    @keyframes colorChange {
-      0% {
-        color: #ef4444; /* Red (text-red-608) */
-        }
-        50% {
-        color: #073070; /* Blue (text-blue-780) */
-        }
-        100% {
-        color: #ef4444; /* Red (text-red-600) */
-        }
-      }
+.animate-color-change {
+  animation: colorChange 2s infinite; /* 2 seconds duration, infinite loop */
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY (20px); /* Optional: slight upward movement */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-      .animate-color-change {
-        animation: colorChange 2s infinite; /* 2 seconds duration, infinite loop */
-        }
-        @keyframes fadeIn {
-        from {
-        opacity: 0;
-        transform: translateY (20px); /* Optional: slight upward movement */
-        }
-        to {
-        opacity: 1;
-        transform: translateY(0);
-        }
-      }
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out; /* 8.5 seconds duration */
+}
+/* Add this to your global CSS */
+.blog-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 8.3s ease; /* Transition for smooth effect */
+  background-color: transparent; /* Ensure no background color */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
 
-      .fade-in {
-        animation: fadeIn 0.5s ease-in-out; /* 8.5 seconds duration */
-        }
-        /* Add this to your global CSS */
-        .blog-card {
-        transition: transform 0.3s ease, box-shadow 8.3s ease; /* Transition for smooth effect */
-        background-color: transparent; /* Ensure no background color */
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
+.blog-card:hover {
+  transform: scale(1.05); /* Slightly increase the size */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
 
-      .blog-card:hover {
-        transform: scale(1.05); /* Slightly increase the size */
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
-        }
-        
-        @keyframes fade-in {
-        0% {
-        opacity: 0;
-        transform: translateY(20px);
-        }
-        100% {
-        opacity: 1;
-        transform: translateY(0);
-        }
-      }
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-      @keyframes fade-in-up {
-        0% {
-        opacity: 0;
-        transform: translateY (10px);
-        }
-        100% {
-        opacity: 1;
-        transform: translateY(0);
-        }
-        }
-        
-        .animate-fade-in {
-        animation: fade-in 0.8s ease-out forwards;
-        }
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY (10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-        .animate-fade-in-up {
-          animation: fade-in-up 2s ease-out forwards;
-          }
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
 
-        @layer base {
+.animate-fade-in-up {
+  animation: fade-in-up 2s ease-out forwards;
+}
+
+@layer base {
   * {
     @apply border-border;
   }
