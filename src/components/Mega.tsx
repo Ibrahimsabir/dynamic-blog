@@ -1,15 +1,23 @@
 import React from "react";
 import BlogCard from "./BlogCard";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  weight: ["400","700"],
+  subsets: ["latin"],
+});
+
+
 
 export const Mega = () => {
-  const salehaPosts = [
+  const posts = [
     {
       id: "1",
       title: "The Essential Tools for Modern Web Developers",
       description:
         "Explore the best tools and frameworks every web developer should know in 2024.",
       date: "2024-12-26",
-      imageUrl: "../images/education.jpg",
+      image: "/images/education.jpg",
     },
     {
       id: "2",
@@ -17,7 +25,7 @@ export const Mega = () => {
       description:
         "A beginner-friendly guide to building scalable frontend apps with React and Next.js.",
       date: "2024-12-25",
-      imageUrl: "../images/technology.jpg",
+      image: "/images/technology.jpg",
     },
     {
       id: "3",
@@ -25,7 +33,7 @@ export const Mega = () => {
       description:
         "Learn the fundamentals of creating robust backend APIs using Node.js and Express.",
       date: "2024-12-24",
-      imageUrl: "../images/technology.jpg",
+      image: "/images/technology.jpg",
     },
     {
       id: "4",
@@ -33,7 +41,7 @@ export const Mega = () => {
       description:
         "Make your websites look great on any device with these responsive design tips.",
       date: "2024-12-23",
-      imageUrl: "../images/technology.jpg",
+      image: "/images/technology.jpg",
     },
     {
       id: "5",
@@ -41,7 +49,7 @@ export const Mega = () => {
       description:
         "An introduction to the MERN stack for full-stack web development.",
       date: "2024-12-22",
-      imageUrl: "../images/technology.jpg",
+      image: "/images/technology.jpg",
     },
     {
       id: "6",
@@ -49,7 +57,7 @@ export const Mega = () => {
       description:
         "Learn the differences between CSS Grid and Flexbox and when to use them.",
       date: "2024-12-21",
-      imageUrl: "../images/technology.jpg",
+      image: "/images/technology.jpg",
     },
     {
       id: "7",
@@ -57,7 +65,7 @@ export const Mega = () => {
       description:
         "Understand the key differences between SSR and CSR and their use cases.",
       date: "2024-12-20",
-      imageUrl: "../images/technology.jpg",
+      image: "/images/technology.jpg",
     },
     {
       id: "8",
@@ -65,7 +73,7 @@ export const Mega = () => {
       description:
         "Tips and tricks to speed up your website and improve user experience.",
       date: "2024-12-19",
-      imageUrl: "../images/technology.jpg",
+      image: "/images/technology.jpg",
     },
     {
       id: "9",
@@ -73,7 +81,7 @@ export const Mega = () => {
       description:
         "Explore the best practices for building secure and scalable APIs.",
       date: "2024-12-18",
-      imageUrl: "../images/education.jpg",
+      image: "/images/education.jpg",
     },
     {
       id: "10",
@@ -81,7 +89,7 @@ export const Mega = () => {
       description:
         "What trends will shape the future of web development? Let’s explore.",
       date: "2024-12-17",
-      imageUrl: "../images/technology.jpg",
+      image: "/images/technology.jpg",
     },
     {
       id: "11",
@@ -89,21 +97,21 @@ export const Mega = () => {
       description:
         "Discover natural remedies to keep your skin healthy and radiant.",
       date: "2024-12-16",
-      imageUrl: "../images/beauty.jpg",
+      image: "/images/beauty.jpg",
     },
     {
       id: "12",
       title: "Makeup Hacks for Busy Moms",
       description: "Quick and easy makeup tips for moms on the go.",
       date: "2024-12-15",
-      imageUrl: "../images/beauty.jpg",
+      image: "/images/beauty.jpg",
     },
     {
       id: "13",
       title: "Hair Care: Preventing Damage from Heat Styling",
       description: "Tips to protect your hair while using heat styling tools.",
       date: "2024-12-14",
-      imageUrl: "../images/baby-care.jpg",
+      image: "/images/baby-care.jpg",
     },
     {
       id: "14",
@@ -111,7 +119,7 @@ export const Mega = () => {
       description:
         "Tips to keep your skin soft and moisturized during the cold season.",
       date: "2024-12-13",
-      imageUrl: "../images/baby-stuff.jpg",
+      image: "/images/baby-stuff.jpg",
     },
     {
       id: "15",
@@ -119,19 +127,19 @@ export const Mega = () => {
       description:
         "Incorporate these beauty habits into your routine for lasting results.",
       date: "2024-12-12",
-      imageUrl: "../images/jwellry.jpg",
+      image: "/images/jwellry.jpg",
     },
   ];
 
   return (
-  <div className="my-8">
+  <div className={`${poppins.className} mt-8`}>
     <h1 className="text-3xl font-bold text-center my-8 text-red-600 animate-color-change">
-        Exploring the world of Saleha&apos Blogs
+        Exploring the world of Saleha's Blogs
 
     </h1>
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-8">
-        {salehaPosts.map((blog, index) => (
+        {posts.map((blog, index) => (
           <div className="fade-in"
             key={blog.id}>
                 <div className="blog-card">

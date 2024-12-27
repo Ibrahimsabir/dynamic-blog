@@ -38,7 +38,7 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <header className={`${poppins.className} text-gray-400  body-font shadow-lg`}>
+    <header className={`${poppins.className}  text-gray-400  body-font shadow-lg`}>
       <div className="container mx-auto flex flex-wrap  items-center justify-between py-4 px-6">
         {/* Left: Date and Time */}
         <div className="text-gray-700 text-lg">

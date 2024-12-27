@@ -70,11 +70,11 @@ export default function CommentSection({ postId }: CommentSectionProps) {
 comments.map((comment) => (
 <Card key={comment.id}>
 <CardContent className=" p-4">
-<div className="font-semibold"> {comment.author}</div>
-<p>(comment.text)</p>
+<div className="font-semibold my-2"> {comment.author}</div>
+<p>{comment.text}</p>
 <Button
    onClick={() => handleEditComment(comment.id)}
-className="mt-2text-blue-500">
+className="my-2 bg-blue-500">
 Edit
 </Button>
 </CardContent>
