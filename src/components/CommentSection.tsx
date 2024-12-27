@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import { Card, CardContent } from "../components/ui/card";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
-import { Poppins} from "next/font/google";
+import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
-  weight: ['400',],
-  subsets: ['latin'],
+  weight: ["400"],
+  subsets: ["latin"],
 });
 
 interface Comment {
@@ -16,11 +16,7 @@ interface Comment {
   text: string;
 }
 
-interface CommentSectionProps {
-  postId: string;
-}
-
-export default function CommentSection({ postId }: CommentSectionProps) {
+export default function CommentSection() {
   const [comments, setComments] = useState<Comment[]>([]);
   const [newComment, setNewComment] = useState("");
   const [authorName, setAuthorName] = useState("");
@@ -66,25 +62,24 @@ export default function CommentSection({ postId }: CommentSectionProps) {
     <div className={`${poppins.className} mt-8 p-12`}>
       <h2 className="text-2xl font-semibold">Comments</h2>
       <div className="mt-4 space-y-4">
-{comments.length > 0 ? (
-comments.map((comment) => (
-<Card key={comment.id}>
-<CardContent className=" p-4">
-<div className="font-semibold my-2"> {comment.author}</div>
-<p>{comment.text}</p>
-<Button
-   onClick={() => handleEditComment(comment.id)}
-className="my-2 bg-blue-500">
-Edit
-</Button>
-</CardContent>
-        </Card>
-))
-) : (
-  <p className="text-blue-400">No Comment Yet</p>
-)
-}
-
+        {comments.length > 0 ? (
+          comments.map((comment) => (
+            <Card key={comment.id}>
+              <CardContent className="p-4">
+                <div className="font-semibold my-2">{comment.author}</div>
+                <p>{comment.text}</p>
+                <Button
+                  onClick={() => handleEditComment(comment.id)}
+                  className="my-2 bg-blue-500"
+                >
+                  Edit
+                </Button>
+              </CardContent>
+            </Card>
+          ))
+        ) : (
+          <p className="text-blue-400">No Comment Yet</p>
+        )}
       </div>
       <div className="mt-4 space-y-2">
         <Input
@@ -109,7 +104,7 @@ Edit
         ) : (
           <Button
             onClick={handleAddComment}
-            className="mt-2 bg-blue-500 text-white border-2 border-blue-700 hover:text-blue-700 hover:bg-white "
+            className="mt-2 bg-blue-500 text-white border-2 border-blue-700 hover:text-blue-700 hover:bg-white"
           >
             Add Comment
           </Button>

@@ -47,9 +47,9 @@ export const AuthorCard = () => {
         </div>
       </div>
       <p className="mt-4 flex flex-col items-center justify-center text-gray-700 leading-relaxed">
-        "I'm a Web Developer and SEO Expert, specializing in creating
+        &quot I&aposm a Web Developer and SEO Expert, specializing in creating
         responsive websites and optimizing them for top search engine
-        rankings."
+        rankings. &quot
         <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
           <Link
             href={"#"}
