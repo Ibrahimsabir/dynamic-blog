@@ -1,13 +1,12 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import BlogCard from "./BlogCard";
 import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
-  weight: ["400","700"],
+  weight: ["400", "700"],
   subsets: ["latin"],
 });
-
-
 
 export const Mega = () => {
   const posts = [
@@ -15,7 +14,7 @@ export const Mega = () => {
       id: "1",
       title: "The Essential Tools for Modern Web Developers",
       description:
-        "Explore the best tools and frameworks every web developer should know in 2024.",
+        "Explore the best tools and frameworks every web developer should know in 2024. From cutting-edge JavaScript libraries to robust backend frameworks, this guide covers the essentials for building fast, scalable, and secure web applications. Learn how to streamline your workflow, improve code quality, and stay ahead of the curve in the ever-evolving web development landscape.",
       date: "2024-12-26",
       image: "/images/education.jpg",
     },
@@ -129,27 +128,44 @@ export const Mega = () => {
       date: "2024-12-12",
       image: "/images/jwellry.jpg",
     },
+    // Add more posts as needed...
   ];
 
+  const [visibleRows, setVisibleRows] = useState(2); // Initial number of rows to display
+  const postsPerRow = 3; // Logical grouping but no direct layout impact due to Tailwind
+
+  const handleShowMore = () => {
+    setVisibleRows((prevRows) => prevRows + 1); // Show one more row on each click
+  };
+
+  const visiblePosts = posts.slice(0, visibleRows * postsPerRow);
+
   return (
-  <div className={`${poppins.className} mt-8`}>
-    <h1 className="text-3xl font-bold text-center my-8 text-red-600 animate-color-change">
+    <div className={`${poppins.className} mt-8 shadow-lg `}>
+      <h1 className="text-3xl font-bold text-center my-12 underline text-red-600 animate-color-change">
         Exploring the world of Saleha's Blogs
+      </h1>
 
-    </h1>
-
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-8">
-        {posts.map((blog, index) => (
-          <div className="fade-in"
-            key={blog.id}>
-                <div className="blog-card">
-                    <BlogCard post={blog} isDarkBackground={index % 2 === 0}/>
-                </div>
-                </div>
-         
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-8">
+        {visiblePosts.map((blog, index) => (
+          <div className="fade-in" key={blog.id}>
+            <div className="blog-card">
+              <BlogCard post={blog} isDarkBackground={index % 2 === 0} />
+            </div>
+          </div>
         ))}
       </div>
 
-  </div>
-  )
+      {visiblePosts.length < posts.length && (
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={handleShowMore}
+            className="bg-red-600 text-white px-6 py-2 my-12 rounded-md hover:bg-red-700 transition"
+          >
+            Visit More Blogs
+          </button>
+        </div>
+      )}
+    </div>
+  );
 };
