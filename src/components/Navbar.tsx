@@ -2,6 +2,13 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  
+});
 
 export const Navbar = () => {
   const [currentDateTime, setCurrentDateTime] = useState("");
@@ -31,7 +38,7 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <header className="text-gray-400  body-font shadow-lg">
+    <header className={`${poppins.className} text-gray-400  body-font shadow-lg`}>
       <div className="container mx-auto flex flex-wrap  items-center justify-between py-4 px-6">
         {/* Left: Date and Time */}
         <div className="text-gray-700 text-lg">

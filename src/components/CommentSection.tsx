@@ -3,6 +3,12 @@ import React, { useState } from "react";
 import { Card, CardContent } from "../components/ui/card";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
+import { Poppins} from "next/font/google";
+
+const poppins = Poppins({
+  weight: ['400',],
+  subsets: ['latin'],
+});
 
 interface Comment {
   id: string;
@@ -57,46 +63,56 @@ export default function CommentSection({ postId }: CommentSectionProps) {
   };
 
   return (
-    <div className="mt-8">
+    <div className={`${poppins.className} mt-8 p-12`}>
       <h2 className="text-2xl font-semibold">Comments</h2>
       <div className="mt-4 space-y-4">
-        <Card>
-          <CardContent>
-            <Input
-              placeholder="Your name"
-              value={authorName}
-              onChange={(e) => setAuthorName(e.target.value)}
-              className="mb-2"
-            />
-            <Input
-              placeholder="Write a comment"
-              value={newComment}
-              onChange={(e) => setNewComment(e.target.value)}
-              className="mb-2"
-            />
-            <Button
-              onClick={editingCommentId ? handleSaveEditedComment : handleAddComment}
-            >
-              {editingCommentId ? "Save Comment" : "Add Comment"}
-            </Button>
-          </CardContent>
+{comments.length > 0 ? (
+comments.map((comment) => (
+<Card key={comment.id}>
+<CardContent className=" p-4">
+<div className="font-semibold"> {comment.author}</div>
+<p>(comment.text)</p>
+<Button
+   onClick={() => handleEditComment(comment.id)}
+className="mt-2text-blue-500">
+Edit
+</Button>
+</CardContent>
         </Card>
+))
+) : (
+  <p className="text-blue-400">No Comment Yet</p>
+)
+}
 
-        {/* Render the comments */}
-        {comments.length > 0 ? (
-          comments.map((comment) => (
-            <Card key={comment.id} className="mt-4">
-              <CardContent>
-                <h3 className="text-lg font-medium">{comment.author}</h3>
-                <p className="text-gray-700">{comment.text}</p>
-                <div className="flex space-x-4 mt-2">
-                  <Button onClick={() => handleEditComment(comment.id)}>Edit</Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))
+      </div>
+      <div className="mt-4 space-y-2">
+        <Input
+          placeholder="Your Name"
+          value={authorName}
+          onChange={(e) => setAuthorName(e.target.value)}
+          className="w-full"
+        />
+        <Input
+          placeholder="Write a comment..."
+          value={newComment}
+          onChange={(e) => setNewComment(e.target.value)}
+          className="w-full"
+        />
+        {editingCommentId ? (
+          <Button
+            onClick={handleSaveEditedComment}
+            className="mt-2 bg-blue-500 text-white border-2 border-blue-700 hover:text-blue-700 hover:bg-white"
+          >
+            Save
+          </Button>
         ) : (
-          <p className="text-gray-500">No comments yet. Be the first to comment!</p>
+          <Button
+            onClick={handleAddComment}
+            className="mt-2 bg-blue-500 text-white border-2 border-blue-700 hover:text-blue-700 hover:bg-white "
+          >
+            Add Comment
+          </Button>
         )}
       </div>
     </div>
