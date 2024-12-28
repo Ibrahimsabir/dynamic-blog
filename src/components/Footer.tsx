@@ -13,7 +13,7 @@ const poppins = Poppins({
 export const Footer = () => {
   return (
     <footer className={`${poppins.className} text-gray-600 body-font`}>
-      <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+      <div className="container px-5 py-8 mx-auto flex justify-center items-center sm:flex-row flex-col">
         <div className=" ransition-transform duration-300 hover:scale-110">
           <Link
             href={"#navbar"}
